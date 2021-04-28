@@ -4,26 +4,23 @@ import { InputText } from './InputText'
 import { InputSelect } from './InputSelect'
 
 // { title = "Card title", type = "select", data }
-export const Question = (props) => {
+export const Question = ({ title, type, data, buttonCB }) => {
 
   return (
     <>
-      <pre>{JSON.stringify(props, null, 4)}</pre>
+      <Row type="flex" align="middle" justify="center">
+        <Card title={title} bordered={false} style={{ width: 500 }}>
+          <br></br>
 
+          {(type === 'text') && <InputText {...data} />}
+          {(type === 'select') && <InputSelect {...data} />}
+
+          <br></br>
+          <br></br>
+          <br></br>
+          <Button type="primary" onClick={buttonCB} >Next</Button>
+        </Card>
+      </Row>
     </>
   )
 }
-
-{/* <Row type="flex" align="middle" justify="center">
-  <Card title={title} bordered={false} style={{ width: 500 }}>
-    <br></br>
-
-    {(type === 'text') && <InputText {...data} />}
-    {(type === 'select') && <InputSelect {...data} />}
-
-    <br></br>
-    <br></br>
-    <br></br>
-    <Button type="primary">Next</Button>
-  </Card>
-</Row> */}

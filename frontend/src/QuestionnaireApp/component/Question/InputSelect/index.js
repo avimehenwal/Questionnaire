@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { Radio, Input, Space } from 'antd';
+import { Radio, Space } from 'antd';
 
-export const InputSelect = () => {
+export const InputSelect = (data) => {
   const [value, setValue] = useState(1)
 
   const onChange = e => {
@@ -11,11 +11,14 @@ export const InputSelect = () => {
 
   return (
     <>
+      {/* <pre>{JSON.stringify(data, null, 4)}</pre> */}
       <Radio.Group onChange={onChange} value={value}>
         <Space direction="vertical">
-          <Radio value={1}>Option A</Radio>
-          <Radio value={2}>Option B</Radio>
-          <Radio value={3}>Option C</Radio>
+
+          {Object.keys(data).map(key => (
+            <Radio key={key} value={key}>{data[key]}</Radio>
+          ))}
+
         </Space>
       </Radio.Group>
     </>
