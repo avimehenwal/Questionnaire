@@ -3,7 +3,7 @@ import {
   SAVE_ANSWER,
   NEXT_QUESTION,
   JUMP_TO_EMAIL,
-  PREVIOUS_QUESTION,
+  // PREVIOUS_QUESTION,
   SET_RECOMMENDATIONS,
   SET_TOTAL_QUESTIONS,
 } from './app-actions'
@@ -18,11 +18,11 @@ export const reducerFunction = (state, action) => {
         currentQuestion: state.currentQuestion + 1
       }
 
-    case PREVIOUS_QUESTION:
-      return {
-        ...state,
-        currentQuestion: state.currentQuestion - 1
-      }
+    // case PREVIOUS_QUESTION:
+    //   return {
+    //     ...state,
+    //     currentQuestion: state.currentQuestion - 1
+    //   }
 
     case JUMP_TO_EMAIL:
       state.answers['numberOfChildren'] = 0
