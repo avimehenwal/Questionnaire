@@ -6,16 +6,18 @@ import {
   SAVE_ANSWER,
   SET_JWT,
   PREVIOUS_QUESTION,
+  SET_RECOMMENDATIONS,
   JUMP_TO_EMAIL,
   SET_TOTAL_QUESTIONS
 } from './app-actions'
-import { postFormData } from '../QuestionnaireApp/apis'
+import { postFormData, getRecommendations } from '../QuestionnaireApp/apis'
 
 export const AppStates = (props) => {
   const initialState = {
-    currentQuestion: 6,
+    currentQuestion: 1,
     totalQuestions: 6,
     answers: {},
+    recommendations: []
   }
 
   const [state, dispatchFn] = useReducer(reducerFunction, initialState)
@@ -29,9 +31,11 @@ export const AppStates = (props) => {
     // document.querySelector('.ant-input').value = ""
     if (state.currentQuestion === state.totalQuestions) {
       const result = await postFormData(state.answers)
-      console.log(result.jwt);
       setJwt(result.jwt)
-      alert('You have filled all the questions')
+      const recommendations = await getRecommendations(result.jwt)
+      console.log(recommendations);
+      dispatchFn({ type: SET_RECOMMENDATIONS, payload: recommendations })
+      // alert(`Form submitted \n JWT ${result.jwt}`)
       return
     } else if (state.currentQuestion === 4 && state.answers.children === 'NO') {
       console.log('Skip next, set current page to 6')

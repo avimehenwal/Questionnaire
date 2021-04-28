@@ -8,7 +8,6 @@ const baseApi = axios.create({
 });
 
 
-
 const sampleBody = {
   "firstName": "Jane",
   "address": "Lohmühlenstraße 65",
@@ -19,8 +18,17 @@ const sampleBody = {
 
 export const postFormData = async (body) => {
   (body.hasOwnProperty('children')) && delete body.children
-  console.dir(body)
-  const result = await baseApi.post('/user', sampleBody)
+  // console.dir(body)
+  const result = await baseApi.post('/user', body)
+  return result.data
+}
+
+export const getRecommendations = async (jwt) => {
+  const result = await baseApi.get('/recommendation', {
+    headers: {
+      'Authorization': `Bearer ${jwt}`
+    }
+  })
   console.dir(result.data)
   return result.data
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import { Row, Typography } from 'antd';
 const { Text, Title } = Typography;
 
-export const Header = ({ title, subtitel, currentQuestionIndex }) => {
+export const Header = ({ title, subtitel, currentQuestionIndex, total }) => {
 
   return (
     <header>
@@ -17,7 +17,7 @@ export const Header = ({ title, subtitel, currentQuestionIndex }) => {
       </Row><br></br>
 
       <Row type="flex" align="middle" justify="center">
-        <Text type="primary">you are answering question {currentQuestionIndex}</Text>
+        <Text type="primary">question {currentQuestionIndex}/{total}</Text>
       </Row><br></br>
 
       <br></br>
@@ -25,3 +25,13 @@ export const Header = ({ title, subtitel, currentQuestionIndex }) => {
     </header >
   )
 }
+
+
+export const Footer = ({ data }) => (
+  <footer>
+    <br></br>
+    <Row type="flex" align="middle" justify="center">
+      <pre>{JSON.stringify(data, null, 2)}</pre>
+    </Row>
+  </footer>
+)

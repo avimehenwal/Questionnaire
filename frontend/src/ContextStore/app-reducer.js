@@ -4,6 +4,7 @@ import {
   NEXT_QUESTION,
   JUMP_TO_EMAIL,
   PREVIOUS_QUESTION,
+  SET_RECOMMENDATIONS,
   SET_TOTAL_QUESTIONS,
 } from './app-actions'
 
@@ -24,6 +25,7 @@ export const reducerFunction = (state, action) => {
       }
 
     case JUMP_TO_EMAIL:
+      state.answers['numberOfChildren'] = 0
       return { ...state, currentQuestion: 6 }
 
     case SET_TOTAL_QUESTIONS:
@@ -50,6 +52,12 @@ export const reducerFunction = (state, action) => {
       return {
         ...state,
         jwt: action.payload
+      }
+
+    case SET_RECOMMENDATIONS:
+      return {
+        ...state,
+        recommendations: action.payload
       }
 
     default:
