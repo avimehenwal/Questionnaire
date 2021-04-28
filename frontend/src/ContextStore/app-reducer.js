@@ -1,4 +1,5 @@
 import {
+  SET_JWT,
   SAVE_ANSWER,
   NEXT_QUESTION,
   JUMP_TO_EMAIL,
@@ -43,6 +44,12 @@ export const reducerFunction = (state, action) => {
       console.log(state);
       return {
         ...state,
+      }
+
+    case SET_JWT:
+      return {
+        ...state,
+        jwt: action.payload
       }
 
     default:

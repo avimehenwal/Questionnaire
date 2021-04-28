@@ -1,30 +1,26 @@
 import axios from 'axios'
+import AppContext from '../ContextStore/app-context'
 
 const baseApi = axios.create({
-  baseURL: 'http://localhost:3010',
+  baseURL: 'https://challenge-dot-popsure-204813.appspot.com/',
   timeout: 1000,
-  headers: { 'X-Custom-Header': 'avimehenwal' }
+  headers: { 'Content-Type': 'application/json' },
 });
 
-const networkCall = async (url, params = {}) => {
-  try {
-    const res = await nwCaller.get(url)
-    // console.log(res);
-    return res.data
-  } catch (e) {
-    console.log('API Error :' + e);
-    return {}
-  }
+
+
+const sampleBody = {
+  "firstName": "Jane",
+  "address": "Lohmühlenstraße 65",
+  "numberOfChildren": 2,
+  "occupation": "EMPLOYED",
+  "email": "jane.doe@getpopsure.com"
 }
 
-
-export const getBoardData = async () => {
-  const result = await networkCall('/boardapp')
-  return result
-}
-
-export const postStatusChange = async (id, postBodyObj) => {
-  const result = await nwCaller.post(`/boardapp/${id}`, postBodyObj)
-  console.dir(result);
-  return result
+export const postFormData = async (body) => {
+  (body.hasOwnProperty('children')) && delete body.children
+  console.dir(body)
+  const result = await baseApi.post('/user', sampleBody)
+  console.dir(result.data)
+  return result.data
 }
