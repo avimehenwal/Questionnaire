@@ -6,28 +6,32 @@ import AppContext from '../ContextStore/app-context'
 
 
 export const QuestionnaireApp = () => {
-  const [questions, setQuestions] = useState(questionsData)
+  // questions could be fetched from external API
+  const [questions] = useState(questionsData)
   const { app, nextQuestion, setTotalQuestions } = useContext(AppContext)
 
   useEffect(() => {
     setTotalQuestions(questionsData.length)
     return () => { }
-  }, [])
+  }, [questions])
 
   return (
     <>
-      <pre>{JSON.stringify(app, null, 4)}</pre>
       <Header {...banner} currentQuestionIndex={app.currentQuestion} />
       <main>
-        {((app.totalQuestions + 1) > app.currentQuestion) &&
-          <Question
-            {...questions[app.currentQuestion - 1]}
-            nextButtonCB={nextQuestion}
-          // prevButtonCB={renderPreviousQuestion}
-          />
-        }
+        <form name="questions" method="post" action="/some-api">
+          {((app.totalQuestions + 1) > app.currentQuestion) &&
+            <Question
+              {...questions[app.currentQuestion - 1]}
+              nextButtonCB={nextQuestion}
+            />
+          }
+        </form>
+
       </main>
-      <footer></footer>
+      <footer>
+        <pre>{JSON.stringify(app, null, 4)}</pre>
+      </footer>
     </>
   )
 }

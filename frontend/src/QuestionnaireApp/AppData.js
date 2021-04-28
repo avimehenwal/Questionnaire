@@ -8,56 +8,56 @@ export const questionsData = [
   {
     title: 'What\'s your first name?',
     type: 'text',
+    name: 'firstName',
     data: {
       placeholder: 'eg: avi'
     },
-    buttonCB: 'callback',
   },
   {
     title: 'What\'s your Address?',
     type: 'text',
+    name: 'address',
     data: {
       placeholder: 'eg: abc, Berlin'
     },
-    buttonCB: 'callback'
   },
   {
     title: 'What\'s your Occupation?',
     type: 'select',
+    name: 'occupation',
     data: {
       1: 'Employed',
       2: 'Student',
-      3: 'Self Employed',
+      3: 'Self-Employed',
     },
-    buttonCB: 'callback'
   },
 
   // make decision for next view
   {
     title: 'Do you have any children?',
     type: 'select',
+    name: 'children',
     data: {
       1: 'Yes',
       2: 'No',
     },
-    buttonCB: 'callback'
   },
   {
     title: 'How many children do you have?',
     type: 'text',
+    name: 'numberOfChildren',
     data: {
       placeholder: 'eg: 1'
     },
-    buttonCB: 'callback'
   },
 
   // last
   {
     title: 'Whats your email?',
     type: 'text',
+    name: 'email',
     data: {
       placeholder: 'eg: abc@xyz.com'
     },
-    buttonCB: 'callback'
   },
 ]
