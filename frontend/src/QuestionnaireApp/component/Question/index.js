@@ -1,10 +1,10 @@
 import React from 'react'
-import { Card, Row, Button } from 'antd';
+import { Card, Row, Col, Button } from 'antd';
 import { InputText } from './InputText'
 import { InputSelect } from './InputSelect'
 
 // { title = "Card title", type = "select", data }
-export const Question = ({ title, type, data, buttonCB }) => {
+export const Question = ({ title, type, data, nextButtonCB, prevButtonCB }) => {
 
   return (
     <>
@@ -18,7 +18,16 @@ export const Question = ({ title, type, data, buttonCB }) => {
           <br></br>
           <br></br>
           <br></br>
-          <Button type="primary" onClick={buttonCB} >Next</Button>
+
+          {/* <Row type="flex" justify="center" gutter={6}> */}
+          {/* <Col align="middle" span={8}>
+              <Button onClick={prevButtonCB}>Previous</Button>
+            </Col> */}
+          {/* <Col justify="center" align="middle" span={8}> */}
+          <Button type="primary" onClick={nextButtonCB}>Next Question</Button>
+          {/* </Col> */}
+          {/* </Row> */}
+
         </Card>
       </Row>
     </>

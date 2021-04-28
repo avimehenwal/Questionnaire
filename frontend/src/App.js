@@ -2,13 +2,15 @@ import React from 'react'
 import './App.css';
 import 'antd/dist/antd.css'
 import { QuestionnaireApp } from './QuestionnaireApp'
-// app context
+import { AppStates } from './ContextStore/AppStates'
 
 function App() {
   return (
-    <div className="App">
-      <QuestionnaireApp />
-    </div>
+    <AppStates>
+      <div className="App">
+        <QuestionnaireApp />
+      </div>
+    </AppStates>
   );
 }
 

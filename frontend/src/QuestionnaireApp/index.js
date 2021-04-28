@@ -1,24 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { Header } from './component/Header'
 import { Question } from './component/Question'
 import { banner, questionsData } from './AppData'
+import AppContext from '../ContextStore/app-context'
+
 
 export const QuestionnaireApp = () => {
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(1)
+  const [questions, setQuestions] = useState(questionsData)
+  const { app, nextQuestion, setTotalQuestions } = useContext(AppContext)
 
-  const renderNextQuestion = () => {
-    setCurrentQuestionIndex(currentQuestionIndex + 1)
-  }
+  useEffect(() => {
+    setTotalQuestions(questionsData.length)
+    return () => { }
+  }, [])
 
   return (
     <>
-      <Header {...banner} currentQuestionIndex={currentQuestionIndex} />
+      <pre>{JSON.stringify(app, null, 4)}</pre>
+      <Header {...banner} currentQuestionIndex={app.currentQuestion} />
       <main>
-        {((questionsData.length + 1) > currentQuestionIndex) &&
+        {((app.totalQuestions + 1) > app.currentQuestion) &&
           <Question
-            {...questionsData[currentQuestionIndex - 1]}
-            buttonCB={renderNextQuestion}
-
+            {...questions[app.currentQuestion - 1]}
+            nextButtonCB={nextQuestion}
+          // prevButtonCB={renderPreviousQuestion}
           />
         }
       </main>
