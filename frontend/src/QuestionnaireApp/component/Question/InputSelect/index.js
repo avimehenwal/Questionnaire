@@ -11,7 +11,6 @@ export const InputSelect = () => {
 
   return (
     <>
-      {/* <pre>{JSON.stringify(data, null, 4)}</pre> */}
       <Radio.Group onChange={onChange} value={value}>
         <Space direction="vertical">
           <Radio value={1}>Option A</Radio>

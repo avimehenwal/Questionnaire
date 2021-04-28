@@ -3,24 +3,27 @@ import { Card, Row, Button } from 'antd';
 import { InputText } from './InputText'
 import { InputSelect } from './InputSelect'
 
-export const Question = ({ title = "Card title", type = "select", data }) => {
+// { title = "Card title", type = "select", data }
+export const Question = (props) => {
 
   return (
     <>
-      <Row type="flex" align="middle" justify="center">
-        <Card title={title} bordered={false} style={{ width: 500 }}>
-          <br></br>
-          {/* <input type="text"></input> */}
+      <pre>{JSON.stringify(props, null, 4)}</pre>
 
-          {(type === 'text') && <InputText {...data} />}
-          {(type === 'select') && <InputSelect {...data} />}
-
-          <br></br>
-          <br></br>
-          <br></br>
-          <Button type="primary">Primary Button</Button>
-        </Card>
-      </Row>
     </>
   )
 }
+
+{/* <Row type="flex" align="middle" justify="center">
+  <Card title={title} bordered={false} style={{ width: 500 }}>
+    <br></br>
+
+    {(type === 'text') && <InputText {...data} />}
+    {(type === 'select') && <InputSelect {...data} />}
+
+    <br></br>
+    <br></br>
+    <br></br>
+    <Button type="primary">Next</Button>
+  </Card>
+</Row> */}
