@@ -5,6 +5,7 @@ import {
   NEXT_QUESTION,
   SAVE_ANSWER,
   PREVIOUS_QUESTION,
+  JUMP_TO_EMAIL,
   SET_TOTAL_QUESTIONS
 } from './app-actions'
 
@@ -29,9 +30,13 @@ export const AppStates = (props) => {
       alert('You have filled all the questions')
       return
     }
-    dispatchFn({
-      type: NEXT_QUESTION,
-    })
+    if (state.currentQuestion === 4 && state.answers.children === 'NO') {
+      console.log('Skip next, set current page to 6')
+      state.currentQuestion = 6
+      dispatchFn({ type: JUMP_TO_EMAIL })
+    } else {
+      dispatchFn({ type: NEXT_QUESTION })
+    }
   }
 
   const setTotalQuestions = (count) => {

@@ -1,6 +1,7 @@
 import {
   SAVE_ANSWER,
   NEXT_QUESTION,
+  JUMP_TO_EMAIL,
   PREVIOUS_QUESTION,
   SET_TOTAL_QUESTIONS,
 } from './app-actions'
@@ -20,6 +21,9 @@ export const reducerFunction = (state, action) => {
         ...state,
         currentQuestion: state.currentQuestion - 1
       }
+
+    case JUMP_TO_EMAIL:
+      return { ...state, currentQuestion: 6 }
 
     case SET_TOTAL_QUESTIONS:
       return {

@@ -37,7 +37,25 @@ export const InputSelect = ({ name, ...data }) => {
   const [value, setValue] = useState(1)
   const { app, saveAnswer } = useContext(AppContext)
 
-  const inputHandler = (e, value) => {
+  useEffect(() => {
+    const ls = window.localStorage
+    if (ls.getItem(name) !== null) {
+      // console.log('SEL ' + ls.getItem(name));
+      saveAnswer(name, ls.getItem(name))
+      Object.keys(data).map(key => {
+        // console.log('SELECTION ' + key + name + ' is eq ' + data[key].toUpperCase());
+        if (data[key].toUpperCase() === ls.getItem(name)) {
+          // console.log('MATCH' + key);
+          setValue(data[key])
+        }
+      })
+    }
+  }, [app.currentQuestion])
+
+  console.log('VALUE SET TO ' + value);
+
+
+  const inputHandler = (e) => {
     console.log(e.target.value);
     setValue(e.target.value)
     saveAnswer(name, e.target.value.toUpperCase())
