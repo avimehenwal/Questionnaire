@@ -18,6 +18,7 @@ export const QuestionnaireApp = () => {
     return () => { }
   }, [questions, app.recommendations])
 
+
   return (
     <>
       <Header {...banner} currentQuestionIndex={app.currentQuestion} total={app.totalQuestions} />
@@ -33,7 +34,7 @@ export const QuestionnaireApp = () => {
           </form>
         }
       </main>
-      {/* <Footer data={app} /> */}
+      <Footer data={app} />
     </>
   )
 }

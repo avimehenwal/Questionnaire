@@ -28,7 +28,7 @@ export const questionsData = [
     data: {
       1: 'Employed',
       2: 'Student',
-      3: 'Self-Employed',
+      3: 'Self_Employed',
     },
   },
 

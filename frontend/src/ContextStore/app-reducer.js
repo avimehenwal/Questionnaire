@@ -41,8 +41,12 @@ export const reducerFunction = (state, action) => {
       let appStorage = window.localStorage;
       appStorage.setItem(key, value)
       console.log('LS:' + key + value);
+      if (key === 'numberOfChildren') {
+        state['answers'][key] = parseInt(value)
+      } else {
+        state['answers'][key] = value
+      }
 
-      state['answers'][key] = value
       console.log(state);
       return {
         ...state,
