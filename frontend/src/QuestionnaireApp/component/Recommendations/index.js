@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, Typography, Space, Row } from 'antd';
-const { Title, Text } = Typography;
+const { Text } = Typography;
 
 export const Recommendations = ({ data }) => {
   return (

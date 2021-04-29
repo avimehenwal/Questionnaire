@@ -12,7 +12,7 @@ export const InputText = (props) => {
     if (ls.getItem(props.name) !== null) {
       saveAnswer(props.name, ls.getItem(props.name))
     }
-  }, [app.currentQuestion])
+  }, [app.currentQuestion, saveAnswer, props.name])
 
   const inputHandler = (e) => {
     console.log(e.target.value);
@@ -46,11 +46,11 @@ export const InputSelect = ({ name, ...data }) => {
         // console.log('SELECTION ' + key + name + ' is eq ' + data[key].toUpperCase());
         if (data[key].toUpperCase() === ls.getItem(name)) {
           // console.log('MATCH' + key);
-          setValue(data[key])
-        }
+          return setValue(data[key])
+        } else return null
       })
     }
-  }, [app.currentQuestion])
+  }, [app.currentQuestion, data, name, saveAnswer])
 
   console.log('VALUE SET TO ' + value);
 

@@ -16,7 +16,7 @@ export const QuestionnaireApp = () => {
     setTotalQuestions(questionsData.length)
     setRecomm(app.recommendations)
     return () => { }
-  }, [questions, app.recommendations])
+  }, [questions, app.recommendations, setTotalQuestions])
 
 
   return (

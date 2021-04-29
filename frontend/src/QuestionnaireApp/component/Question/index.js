@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Row, Col, Button } from 'antd';
+import { Card, Row, Button } from 'antd';
 import { InputText, InputSelect } from './InputBar'
 
 // { title = "Card title", type = "select", data }
