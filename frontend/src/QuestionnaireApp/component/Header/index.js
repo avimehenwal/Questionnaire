@@ -38,7 +38,7 @@ export const Footer = ({ data }) => {
     <footer>
       <br></br>
       <Row type="flex" align="middle" justify="center">
-        <Checkbox onChange={onChange} value={showTrace}>Log Debug Trace</Checkbox>
+        <Checkbox onChange={onChange} checked={showTrace}>Log Debug Trace</Checkbox>
       </Row><br></br>
       {(showTrace) &&
         <Row type="flex" align="middle" justify="center">
