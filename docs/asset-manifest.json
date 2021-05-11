@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Questionnaire/static/css/main.bab0b925.chunk.css",
+    "main.js": "/Questionnaire/static/js/main.c714270f.chunk.js",
+    "main.js.map": "/Questionnaire/static/js/main.c714270f.chunk.js.map",
+    "runtime-main.js": "/Questionnaire/static/js/runtime-main.aa258acb.js",
+    "runtime-main.js.map": "/Questionnaire/static/js/runtime-main.aa258acb.js.map",
+    "static/css/2.03710b91.chunk.css": "/Questionnaire/static/css/2.03710b91.chunk.css",
+    "static/js/2.fb7e4794.chunk.js": "/Questionnaire/static/js/2.fb7e4794.chunk.js",
+    "static/js/2.fb7e4794.chunk.js.map": "/Questionnaire/static/js/2.fb7e4794.chunk.js.map",
+    "index.html": "/Questionnaire/index.html",
+    "static/css/2.03710b91.chunk.css.map": "/Questionnaire/static/css/2.03710b91.chunk.css.map",
+    "static/css/main.bab0b925.chunk.css.map": "/Questionnaire/static/css/main.bab0b925.chunk.css.map",
+    "static/js/2.fb7e4794.chunk.js.LICENSE.txt": "/Questionnaire/static/js/2.fb7e4794.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.aa258acb.js",
+    "static/css/2.03710b91.chunk.css",
+    "static/js/2.fb7e4794.chunk.js",
+    "static/css/main.bab0b925.chunk.css",
+    "static/js/main.c714270f.chunk.js"
+  ]
+}
