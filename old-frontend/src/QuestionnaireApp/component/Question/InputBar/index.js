@@ -12,7 +12,7 @@ export const InputText = (props) => {
     if (ls.getItem(props.name) !== null) {
       saveAnswer(props.name, ls.getItem(props.name))
     }
-  }, [app.currentQuestion, saveAnswer, props.name])
+  }, [app.currentQuestion])
 
   const inputHandler = (e) => {
     console.log(e.target.value);
